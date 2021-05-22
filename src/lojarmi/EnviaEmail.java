@@ -31,7 +31,7 @@ public class EnviaEmail {
         Session session = Session.getDefaultInstance(props,
                 new javax.mail.Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication("testeenviormi@gmail.com", "testermi123");
+                return new PasswordAuthentication("Email remetente", "Senha");
             }
         });
 
@@ -43,10 +43,10 @@ public class EnviaEmail {
         try {
 
             Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress("edryell43@gmail.com")); //Remetente
+            message.setFrom(new InternetAddress("Email destinatário")); //Remetente
 
             Address[] toUser = InternetAddress //Destinatário(s)
-                    .parse("edryell43@gmail.com");
+                    .parse("Email destinatário");
 
             message.setRecipients(Message.RecipientType.TO, toUser);
             message.setSubject("Enviando email com JavaMail");//Assunto
